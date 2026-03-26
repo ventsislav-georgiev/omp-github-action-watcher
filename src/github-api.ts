@@ -1,5 +1,16 @@
-import type { ExecOptions, ExecResult } from "@oh-my-pi/pi-coding-agent";
 import type { GithubActionRunState, GithubActionRunTarget } from "./types";
+
+export interface ExecResult {
+	code: number;
+	stdout: string;
+	stderr: string;
+}
+
+export interface ExecOptions {
+	cwd?: string;
+	signal?: AbortSignal;
+	timeout?: number;
+}
 
 export type GithubCommandExecutor = (command: string, args: string[], options?: ExecOptions) => Promise<ExecResult>;
 
